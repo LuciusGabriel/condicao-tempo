@@ -11,8 +11,19 @@
 body{
     font-family: 'Poppins', Verdana;
     background-color: var(--dark-orange);
-    color: #FFF
+    color: #FFF;
+    font-size: 18px;
+}
+
+main{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 h1{
     font-size: 30px;
+}
+#city{
+    width: 20em;
 }
