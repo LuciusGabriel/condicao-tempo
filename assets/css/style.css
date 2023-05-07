@@ -17,13 +17,25 @@ body{
 
 main{
     text-align: center;
-    display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #333;
+    height: 100vh;
 }
 h1{
     font-size: 30px;
+    display: inline-block;
 }
 #city{
     width: 20em;
+    margin: 0 auto;
+}
+
+.resultado{
+    width: 50vh;
+    margin: 0 auto;
+    margin-top: 20px;
+    border: #9d4EDD 1px solid;
+    border-radius: .5em;
+    padding: 1em;
 }
