@@ -24,15 +24,22 @@ main{
 }
 h1{
     font-size: 30px;
+    font-weight: bold;
     display: inline-block;
+    margin-bottom: .5em;
 }
 #city{
     width: 20em;
     margin: 0 auto;
 }
+input{
+    height: 2.5em;
+    font-size: 1em;
+    padding: .5em;
+}
 
 .resultado{
-    width: 50vh;
+    max-width: 20vw;
     margin: 0 auto;
     margin-top: 20px;
     border: #9d4EDD 1px solid;
