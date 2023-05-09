@@ -1,6 +1,6 @@
 const keyWeather1 = '38d01c23be97354a5'
 const keyWeather2 = 'a86c28153befa3b'
-const apiURL = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${keyWeather1+keyWeather2}&lang=pt_br`
+const apiURL = ``
 
 
 const form = document.querySelector('#city')
@@ -8,5 +8,14 @@ const form = document.querySelector('#city')
 form.addEventListener('submit', (event)=>{
     event.preventDefault()
     const input = document.querySelector('.pesquisa').value
-    console.log(input)
+    
+    fetchAPI(encodeURI(input))
+
 })
+
+function fetchAPI(city){
+    const consulta = fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${keyWeather1+keyWeather2}&lang=pt_br`)
+    // const resultado = consulta.json()
+    
+    console.log(consulta)
+}
