@@ -7,15 +7,24 @@ const form = document.querySelector('#city')
 
 form.addEventListener('submit', (event)=>{
     event.preventDefault()
+
     const input = document.querySelector('.pesquisa').value
     
     fetchAPI(encodeURI(input))
-
 })
 
-function fetchAPI(city){
-    const consulta = fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${keyWeather1+keyWeather2}&lang=pt_br`)
-    // const resultado = consulta.json()
-    
-    console.log(consulta)
+async function fetchAPI(city){
+    const consulta = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${keyWeather1+keyWeather2}&lang=pt_br`)
+    const resultado = await consulta.json()
+
+    console.log(resultado)
+}
+
+
+
+
+function apresentaResultado(resultado){
+    const cidade = document.querySelector('.cidade')
+    cidade = resultado[0].name
+
 }
