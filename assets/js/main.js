@@ -17,14 +17,6 @@ async function fetchAPI(city){
     const consulta = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${keyWeather1+keyWeather2}&lang=pt_br`)
     const resultado = await consulta.json()
 
+
     console.log(resultado)
-}
-
-
-
-
-function apresentaResultado(resultado){
-    const cidade = document.querySelector('.cidade')
-    cidade = resultado[0].name
-
 }
