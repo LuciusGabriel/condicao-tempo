@@ -15,12 +15,14 @@ form.addEventListener('submit', async (event)=>{
     
     let input = document.querySelector('.pesquisa').value
 
-    if(input!=' '){
+    if(input!=''){
         let consulta = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(input)}&appid=${keyWeather1+keyWeather2}&units=metric&lang=pt_br`)
         let pesquisa = await consulta.json()
-        console.log(pesquisa)
-        apresentaResultado(pesquisa)
-        
+            if(pesquisa.cod == '200'){
+                apresentaResultado(pesquisa)
+            }else{
+                console.log('Cidade Não Encontrada')
+            }
     }else{
         console.log('Digite uma cidade')
     }
