@@ -8,16 +8,27 @@ const minTemp = document.querySelector('.min-temperatura')
 
 const form = document.querySelector('#city')
 
-let input = document.querySelector('.pesquisa').value
+
 
 form.addEventListener('submit', async (event)=>{
     event.preventDefault()
+    
+    let input = document.querySelector('.pesquisa').value
+
     if(input!=' '){
-        let consulta = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${encodeURI(input)}&appid=${keyWeather1+keyWeather2}&lang=pt_br`)
-        let resultado = await consulta.json()
+        let consulta = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(input)}&appid=${keyWeather1+keyWeather2}&units=metric&lang=pt_br`)
+        let pesquisa = await consulta.json()
+        console.log(pesquisa)
+        apresentaResultado(pesquisa)
         
-            console.log(consulta)
     }else{
         console.log('Digite uma cidade')
     }
 })
+
+function apresentaResultado(pesquisa){    
+    cidade.innerHTML = `${pesquisa.name}, ${pesquisa.sys.country}`
+    temperatura.innerHTML = `${pesquisa.main.temp}`
+    maxTemp.innerHTML = `${pesquisa.main.temp_max}`
+    minTemp.innerHTML = `${pesquisa.main.temp_min}`
+}
