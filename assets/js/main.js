@@ -7,7 +7,9 @@ const maxTemp = document.querySelector('.max-temperatura')
 const minTemp = document.querySelector('.min-temperatura')
 
 const form = document.querySelector('#city')
+let inputPesquisa = document.querySelector('.pesquisa')
 
+const resultado = document.querySelector('.resultado')
 
 
 form.addEventListener('submit', async (event)=>{
@@ -21,16 +23,23 @@ form.addEventListener('submit', async (event)=>{
             if(pesquisa.cod == '200'){
                 apresentaResultado(pesquisa)
             }else{
-                console.log('Cidade Não Encontrada')
+                apresentaErro()
             }
     }else{
         console.log('Digite uma cidade')
     }
 })
 
-function apresentaResultado(pesquisa){    
-    cidade.innerHTML = `${pesquisa.name}, ${pesquisa.sys.country}`
-    temperatura.innerHTML = `${pesquisa.main.temp}`
-    maxTemp.innerHTML = `${pesquisa.main.temp_max}`
-    minTemp.innerHTML = `${pesquisa.main.temp_min}`
+function apresentaResultado(pesquisa){
+    inputPesquisa.value = ''
+    cidade.insertAdjacentHTML('beforeend',`${pesquisa.name}, ${pesquisa.sys.country}`);
+    temperatura.insertAdjacentHTML('beforeend',` ${pesquisa.main.temp.toFixed(0)}º`);
+    maxTemp.insertAdjacentHTML('beforeend', ` ${pesquisa.main.temp_max.toFixed(0)}º`);
+    minTemp.insertAdjacentHTML('beforeend', ` ${pesquisa.main.temp_min.toFixed(0)}º`);
+    resultado.style.display = 'block'
+}
+
+function apresentaErro(){
+    cidade.insertAdjacentHTML('beforeend', `Cidade Não Encontrada`)
+    resultado.style.display = 'block'
 }
