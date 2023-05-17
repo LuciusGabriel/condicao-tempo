@@ -26,7 +26,7 @@ form.addEventListener('submit', async (event)=>{
                 apresentaErro()
             }
     }else{
-        console.log('Digite uma cidade')
+        alert('Digite uma cidade')
     }
 })
 
