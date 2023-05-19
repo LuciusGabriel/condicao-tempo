@@ -32,6 +32,7 @@ form.addEventListener('submit', async (event)=>{
 
 function apresentaResultado(pesquisa){
     inputPesquisa.value = ''
+    
     cidade.insertAdjacentHTML('beforeend',`${pesquisa.name}, ${pesquisa.sys.country}`);
     temperatura.insertAdjacentHTML('beforeend',` ${pesquisa.main.temp.toFixed(0)}º`);
     maxTemp.insertAdjacentHTML('beforeend', ` ${pesquisa.main.temp_max.toFixed(0)}º`);
